@@ -1,13 +1,17 @@
-// helloWorld function 
-function helloWorld() {
-    return "Hello, World!";
-}
-
 let isOnlyNumericString = function(value) {
     return /^\d+$/.test(value);
 }
 let isOnlyLetterString = function(value){
     return /^[a-zA-Z]+$/.test(value);
+}
+
+function isNumber(value) {
+    return !(isNaN(value) || typeof value === "boolean");
+}
+
+// helloWorld function
+function helloWorld() {
+    return "Hello, World!";
 }
 
 // sayHello function
@@ -42,12 +46,20 @@ function isEven(input) {
 function isVowel(char) {
     let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O","U"];
     let isVowel = false;
-    vowels.forEach((item) =>{
+    vowels.forEach((item) => {
         if(item === char) {
             isVowel = true;
         }
     });
     return isVowel;
+}
+
+// odd function
+function add(value1, value2) {
+    if(isNumber(value1) && isNumber(value2) || isOnlyNumericString(value1) && isOnlyNumericString(value2)) {
+        return parseFloat(value1) + parseFloat(value2);
+    }
+    return NaN;
 }
 
 
